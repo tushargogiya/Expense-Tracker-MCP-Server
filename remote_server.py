@@ -5,6 +5,7 @@ import calendar
 import csv
 import io
 import json
+import os
 import sqlite3
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -14,7 +15,7 @@ from fastmcp import FastMCP
 
 # ─── Constants ────────────────────────────────────────────────────────────────
 
-DB_PATH = Path(__file__).parent / "expenses.db"
+DB_PATH = Path(os.environ.get("DB_PATH", "/tmp/expenses.db"))
 
 DEFAULT_CATEGORIES = [
     ("Food & Dining",        "#FF6B6B", "🍽️"),
